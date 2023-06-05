@@ -22,7 +22,7 @@
     <main>
         <section id="about">
             <h2>Sobre Nós</h2>
-            <p>Descrição do serviço de grafite em São Paulo e São josé dos campos, pixo, rabisco e desenho vandalismo.</p>
+            <p>Descrição do serviço de grafite em São Paulo, pixo, rabisco e desenho vandalismo.</p>
         </section>
 
         <section id="services">
@@ -36,12 +36,11 @@
         </section>
 
         <section id="contact">
-            <h2>Entre em Contato</h2>
-            <p>Preencha o formulário abaixo para solicitar um orçamento:</p>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Seu nome">
-                <input type="email" name="email" placeholder="Seu e-mail">
-                <textarea name="message" placeholder="Sua mensagem"></textarea>
+            <h2>Envie sua Arte</h2>
+            <p>Compartilhe sua foto e a mensagem escrita:</p>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <input type="file" name="photo" accept="image/jpeg,image/png,image/gif" required>
+                <input type="text" name="message" placeholder="Mensagem" required>
                 <input type="submit" value="Enviar">
             </form>
         </section>
@@ -50,5 +49,7 @@
     <footer>
         <p>&copy; 2023 Grafite São Paulo. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
