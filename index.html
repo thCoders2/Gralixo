@@ -1,55 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Orçamento de Grafite</title>
+  <title>Jogo de Adivinhação de Palavras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Grafite São Paulo</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Portfólio</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="container">
+    <h1>CAÇA-PIXO nivel easy! complexity 3</h1>
+    <img src="imgs/karma-raiva-acalma.png" alt="aaaaaaai-mm-kcrl">
+    <label for="guess">Adivinhe a palavra:</label>
+    <input type="text" id="guess" placeholder="Digite sua resposta">
+    <button id="submit">Enviar</button>
+    <h2>Palavras corretas:</h2>
+    <ul id="word-list"></ul>
+    <h2>Parabéns, você acertou todas as palavras!</h2>
+    <label for="player-name">Digite seu nome:</label>
+    <input type="text" id="player-name" placeholder="Digite seu nome">
+    <button id="save">Salvar</button>
+  </div>
 
-    <main>
-        <section id="about">
-            <h2>Sobre Nós</h2>
-            <p>Descrição do serviço de grafite em São Paulo, pixo, rabisco e desenho vandalismo.</p>
-        </section>
+  <script>
+    const submitButton = document.getElementById('submit');
+    const guessInput = document.getElementById('guess');
+    const wordList = document.getElementById('word-list');
+    const playerNameInput = document.getElementById('player-name');
+    const saveButton = document.getElementById('save');
 
-        <section id="services">
-            <h2>Nossos Serviços</h2>
-            <ul>
-                <li>Grafite em fachadas de prédios</li>
-                <li>Pixo personalizado</li>
-                <li>Rabiscos artísticos</li>
-                <li>Desenhos vandalistas</li>
-            </ul>
-        </section>
+    const correctWords = ['karma', 'raiva', 'acalma']; // Palavras corretas do jogo
+    let guessedWords = []; // Palavras adivinhadas pelo jogador
 
-        <section id="contact">
-            <h2>Envie sua Arte</h2>
-            <p>Compartilhe sua foto e a mensagem escrita:</p>
-            <form action="#" method="post" enctype="multipart/form-data">
-                <input type="file" name="photo" accept="image/jpeg,image/png,image/gif" required>
-                <input type="text" name="message" placeholder="Mensagem" required>
-                <input type="submit" value="Enviar">
-            </form>
-        </section>
-    </main>
+    // Evento de clique no botão Enviar
+    submitButton.addEventListener('click', () => {
+      const guess = guessInput.value;
 
-    <footer>
-        <p>&copy; 2023 Grafite São Paulo. Todos os direitos reservados.</p>
-    </footer>
+      if (correctWords.includes(guess) && !guessedWords.includes(guess)) {
+        guessedWords.push(guess);
+        updateWordList();
+        guessInput.value = '';
+      }
+    });
 
-    <script src="script.js"></script>
+    // Função para atualizar a lista de palavras corretas
+    function updateWordList() {
+      wordList.innerHTML = '';
+
+      guessedWords.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        wordList.appendChild(listItem);
+      });
+
+      if (guessedWords.length === correctWords.length) {
+        document.getElementById('player-name').style.display = 'block';
+        document.getElementById('save').style.display = 'block';
+      }
+    }
+
+    // Evento de clique no botão Salvar
+    saveButton.addEventListener('click', () => {
+      const playerName = playerNameInput.value;
+       local
+      // Aqui você pode salvar as informações do jogador, como o nome e a pontuação, em algum lugar, como local storage ou enviar para um servidor.
+
+        localStorage.setItem('win',playerName)
+        alert('teu nome foi salvo no localStorage, em breve vira atualizações da pagina')
+      playerNameInput.value = '';
+      playerNameInput.style.display = 'none';
+      saveButton.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
