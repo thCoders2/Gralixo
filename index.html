@@ -54,6 +54,10 @@
       font-size: 16px;
       margin-bottom: 10px;
     }
+
+    .winners {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -65,10 +69,12 @@
     <button id="submit">Enviar</button>
     <h2>Palavras corretas:</h2>
     <ul id="word-list"></ul>
-    <h2>Parabéns, você acertou todas as palavras!</h2>
-    <label for="player-name">Digite seu nome:</label>
-    <input type="text" id="player-name" placeholder="Digite seu nome">
-    <button id="save">Salvar</button>
+    <div class="winners">
+      <h2>Parabéns, você acertou todas as palavras!</h2>
+      <label for="player-name">Digite seu nome:</label>
+      <input type="text" id="player-name" placeholder="Digite seu nome">
+      <button id="save">Salvar</button>
+    </div>
   </div>
 
   <script>
@@ -103,8 +109,10 @@
       });
 
       if (guessedWords.length === correctWords.length) {
-        document.getElementById('player-name').style.display = 'block';
-        document.getElementById('save').style.display = 'block';
+        document.getElementsByClassName('winners').style.display = 'block'
+        // document.getElementById('player-name').style.display = 'block';
+        // document.getElementById('save').style.display = 'block';
+        document.body.style.backgroundColor='red'
       }
     }
 
@@ -116,8 +124,8 @@
 
         localStorage.setItem('win',playerName)
         alert('teu nome foi salvo no localStorage, em breve vira atualizações da pagina')
-      playerNameInput.value = '';
-      playerNameInput.style.display = 'none';
+      // playerNameInput.value = '';
+      // playerNameInput.style.display = 'none';
       saveButton.style.display = 'none';
     });
   </script>
