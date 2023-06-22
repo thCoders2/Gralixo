@@ -1,137 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Jogo de Adivinhação de Palavras</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fafafa;
-    }
+  <head>
+    <title>Jogo de Adivinhação de Palavras</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style-static.css">
+    <link rel="stylesheet" type="text/css" href="style-dinamic.css">
+  </head>
+  <body>
+    <main>
+      <h1>CAÇA-PIXO nivel easy! complexity: </h1>
+      <img src="imgs/karma-raiva-acalma.png" alt="aaaaaaai-mm-kcrl">
 
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+      <label for="guess">Adivinhe a palavra:</label>
+      <input type="text" id="guess" placeholder="Digite sua resposta">
+      
+      <button id="submit">Enviar</button>
+      
+      <h2>Palavras corretas:</h2>
 
-    h1 {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .winners {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>CAÇA-PIXO nivel easy! complexity: </h1>
-    <img src="imgs/karma-raiva-acalma.png" alt="aaaaaaai-mm-kcrl">
-    <label for="guess">Adivinhe a palavra:</label>
-    <input type="text" id="guess" placeholder="Digite sua resposta">
-    <button id="submit">Enviar</button>
-    <h2>Palavras corretas:</h2>
-    <ul id="word-list"></ul>
-    <div class="winners">
-      <h2>Parabéns, você acertou todas as palavras!</h2>
-      <label for="player-name">Digite seu nome:</label>
-      <input type="text" id="player-name" placeholder="Digite seu nome">
-      <button id="save">Salvar</button>
-    </div>
-  </div>
-
-  <script>
-    const title = document.querySelector('h1');
-
-    const submitButton = document.getElementById('submit');
-    const guessInput = document.getElementById('guess');
-    const wordList = document.getElementById('word-list');
-    const playerNameInput = document.getElementById('player-name');
-    const saveButton = document.getElementById('save');
-
-    const correctWords = ['karma', 'raiva', 'acalma', 'calma', 'alma','raiz']; // Palavras corretas do jogo
-    let guessedWords = []; // Palavras adivinhadas pelo jogador
-
-    title.textContent = title.textContent + correctWords.length;
-    
-    // Evento de clique no botão Enviar
-    submitButton.addEventListener('click', () => {
-      const guess = guessInput.value;
-
-      if (correctWords.includes(guess) && !guessedWords.includes(guess)) {
-        guessedWords.push(guess);
-        updateWordList();
-        guessInput.value = '';
-      }
-    });
-
-    // Função para atualizar a lista de palavras corretas
-    function updateWordList() {
-      wordList.innerHTML = '';
-
-      guessedWords.forEach(word => {
-        const listItem = document.createElement('li');
-        listItem.textContent = word;
-        wordList.appendChild(listItem);
-      });
-
-      if (guessedWords.length === correctWords.length) {
-        document.getElementsByClassName('winners').style.display = 'block'
-        // document.getElementById('player-name').style.display = 'block';
-        // document.getElementById('save').style.display = 'block';
-        document.body.style.backgroundColor='red'
-      }
-    }
-
-    // Evento de clique no botão Salvar
-    saveButton.addEventListener('click', () => {
-      const playerName = playerNameInput.value;
-       local
-      // Aqui você pode salvar as informações do jogador, como o nome e a pontuação, em algum lugar, como local storage ou enviar para um servidor.
-
-        localStorage.setItem('win',playerName)
-        alert('teu nome foi salvo no localStorage, em breve vira atualizações da pagina')
-      // playerNameInput.value = '';
-      // playerNameInput.style.display = 'none';
-      saveButton.style.display = 'none';
-    });
-  </script>
-</body>
+      <ul id="word-list"></ul>
+      <div class="winnersOff">
+        <h2>Parabéns, você acertou todas as palavras!</h2>
+        
+        <input type="text" id="player-name" placeholder="Digite seu nome">
+        <button id="save">Salvar</button>
+      </div>
+    </main>
+  </body>
+  <script type="text/javascript"  src="style.js"></script>
 </html>

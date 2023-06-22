@@ -1,0 +1,42 @@
+.karma {
+    color: red;
+    font-weight: 800;
+    background-color: rgb(70, 187, 255);
+    font-family: 'Comic Sans MS', cursive;
+}
+.karma-blue {
+    color: blue;
+    font-weight: bold;
+    background-color: yellow;
+    font-family: 'Courier New', monospace;
+}
+.karma-konha {
+    color: green;
+    font-weight: normal;
+    background-color: pink;
+    font-family: 'Verdana', sans-serif;
+}
+.karmoxa {
+    color: purple;
+    font-weight: 600;
+    background-color: orange;
+    font-family: 'Impact', fantasy;
+}
+
+.winnersOn {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    align-self: center;
+    top: 150px;
+    background-color: rgb(3, 11, 116);
+    color: antiquewhite;
+    padding: 5%;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-family: 'Tahoma', 'Arial', sans-serif;
+    font-size: 14px;
+}

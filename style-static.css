@@ -1,0 +1,23 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #210000;
+    background-color: #fafafa;
+}
+
+main {
+    padding: 20px;
+}
+
+
+h1 {
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    font-size: 48px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
